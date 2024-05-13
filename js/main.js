@@ -5,6 +5,7 @@ createApp({
     return {
       message: 'Hello Vue!',
       slideAttiva: 0,
+      timer: null,
       slides: [
         {
           image: 'img/01.webp',
@@ -40,9 +41,8 @@ createApp({
     visibility(indice, classe) {
       return (indice == this.slideAttiva) ? 'active' : classe;
     },
-    cliccaSeleziona(indice){
+    cliccaSeleziona(indice) {
       this.slideAttiva = indice
-
     }
     // visibilita(indice) {
     //   return (indice == this.slideAttiva) ? 'active' : 'hide';
@@ -50,7 +50,9 @@ createApp({
 
   },
   mounted() {
-
+    timer = setInterval(() => {
+      (this.slideAttiva == 4) ? this.slideAttiva = 0 : this.slideAttiva++;
+    }, 2000);
   }
 
 }).mount('#app')
