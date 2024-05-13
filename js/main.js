@@ -40,6 +40,10 @@ createApp({
     visibility(indice, classe) {
       return (indice == this.slideAttiva) ? 'active' : classe;
     },
+    cliccaSeleziona(indice){
+      this.slideAttiva = indice
+
+    }
     // visibilita(indice) {
     //   return (indice == this.slideAttiva) ? 'active' : 'hide';
     // }

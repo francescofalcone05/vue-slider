@@ -27,7 +27,7 @@
                 <div class="thumbs">
                     <div @click="back()" class="prev"></div>
                     <div @click="next()" class="next"></div>
-                    <div v-for="slide, i in slides" class="thumb" :class="visibility(i, '')">
+                    <div  @click="cliccaSeleziona(i)" v-for="slide, i in slides" class="thumb" :class="visibility(i, '')">
                         <img :src="slide.image" alt="" />
                     </div>
 
