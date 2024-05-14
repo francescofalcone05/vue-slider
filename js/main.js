@@ -6,6 +6,7 @@ createApp({
       message: 'Hello Vue!',
       slideAttiva: 0,
       timer: null,
+      play:false,
       slides: [
         {
           image: 'img/01.webp',
@@ -33,16 +34,27 @@ createApp({
   },
   methods: {
     next() {
-      (this.slideAttiva == 4) ? this.slideAttiva = 0 : this.slideAttiva++;
+      (this.slideAttiva == this.slides.length - 1) ? this.slideAttiva = 0 : this.slideAttiva++;
     },
     back() {
-      (this.slideAttiva == 0) ? this.slideAttiva = 4 : this.slideAttiva--;
+      (this.slideAttiva == 0) ? this.slideAttiva = this.slides.length - 1 : this.slideAttiva--;
     },
     visibility(indice, classe) {
       return (indice == this.slideAttiva) ? 'active' : classe;
     },
     cliccaSeleziona(indice) {
       this.slideAttiva = indice
+    },
+    stopAutoplay(){
+      clearInterval(this.timer)
+      this.play = false
+    },
+    startAutoplay(){
+      this.timer = setInterval(() => {
+        (this.slideAttiva == 4) ? this.slideAttiva = 0 : this.slideAttiva++;
+      }, 1000);
+      this.play = true
+
     }
     // visibilita(indice) {
     //   return (indice == this.slideAttiva) ? 'active' : 'hide';
@@ -50,9 +62,7 @@ createApp({
 
   },
   mounted() {
-    timer = setInterval(() => {
-      (this.slideAttiva == 4) ? this.slideAttiva = 0 : this.slideAttiva++;
-    }, 2000);
+
   }
 
 }).mount('#app')

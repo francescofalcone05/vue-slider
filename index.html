@@ -12,6 +12,10 @@
     <script src="https://unpkg.com/vue@3.4.27/dist/vue.global.js"></script>
 
     <div id="app">
+        <div class="bottoni">
+            <button v-if="play==false" class="green" @click="startAutoplay()">Start autoplay</button>
+            <button v-else="play==true" class="red" @click="stopAutoplay()">Stop autoplay</button>
+        </div>
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
