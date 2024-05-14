@@ -54,12 +54,7 @@ createApp({
         (this.slideAttiva == 4) ? this.slideAttiva = 0 : this.slideAttiva++;
       }, 1000);
       this.play = true
-
     }
-    // visibilita(indice) {
-    //   return (indice == this.slideAttiva) ? 'active' : 'hide';
-    // }
-
   },
   mounted() {
 
